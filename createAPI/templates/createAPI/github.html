@@ -1,0 +1,21 @@
+
+
+{% block content %}
+  <h2>My API</h2>
+  <center>
+  <form method="get">
+    <input type="text" name="org">
+    <button type="submit">search on github</button>
+  </form>
+  {% if user %}
+  	<!-- <p>{{ user}}</p> -->
+    <p> Response time for fetch from git :       <strong>{{ user.response_time_from_git }}  sec. </strong> <br><br>
+    	Response time for my endpoint : <strong>{{ user.total_time }}  sec. </strong> <br><br>
+     Retrieved results are (json) : <br><br> <strong>{{ user.results }}</strong> </p>
+     <p>Rate limit: {{ user.rate.remaining }}/{{ user.rate.limit }}</p>
+  {% endif %}
+
+</center>
+{% endblock %}
+
+
